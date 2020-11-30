@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{fragments/main_layout}"
+      xmlns:th="https://www.thymeleaf.org">
+
+<div class="container" layout:fragment="content">
+    <h1 class="text-center p-3 mb-2 bg-info text-white">Register Employee</h1>
+    <form action="#" th:action="@{/employee}" method="POST">
+        <Body BACKGROUND="https://data.1freewallpapers.com/download/clouds-sky-pink-evening-1600x1200.jpg"></Body>
+        <div class="form-group">
+            <label for="inputId">Id</label>
+            <input type="input" class="form-control" name="id" id="inputId">
+        </div>
+
+        <div class="form-group">
+            <label for="inputName">Name</label>
+            <input type="input" class="form-control" name="name" id="inputName">
+        </div>
+
+        <div class="form-group">
+            <label for="inputSalary">Salary</label>
+            <input type="input" class="form-control" name="salary" id="inputSalary">
+        </div>
+
+        <div class="form-group">
+            <label for="inputTel">Tel</label>
+            <input type="input" class="form-control" name="tel" id="inputTel">
+        </div>
+
+        <div class="form-group">
+            <label for="inputPin">Pin</label>
+            <input type="password" class="form-control" name="pin" id="inputPin">
+        </div>
+
+        <div class="form-group">
+            <input type="submit" class="btn btn-primary"> <a class="btn btn-info" href="http://localhost:1010/login" role="button">Login</a>
+        </div>
+    </form>
+    <hr>
+
+    <h1>All Employees</h1>
+    <table class="table table-bordered">
+        <thead class="thead-light">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Salary</th>
+            <th>Tel</th>
+            <th>Pin</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="employee: ${allEmployees}">
+            <td th:text="${employee.id}"></td>
+            <td th:text="${employee.name}"></td>
+            <td th:text="${employee.salary}"></td>
+            <td th:text="${employee.tel}"></td>
+            <td th:text="${employee.pin}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>

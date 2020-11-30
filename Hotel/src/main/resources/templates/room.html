@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{fragments/main_layout}"
+      xmlns:th="https://www.thymeleaf.org">
+
+<div class="container" layout:fragment="content">
+    <h1 class="text-center p-3 mb-2 bg-success text-white">Room</h1>
+    <form action="#" th:action="@{/room}" method="POST">
+        <Body BACKGROUND="https://www.georeka.com/wp-content/uploads/2015/11/photo-1438201743149-3cc16cd4cddd-1600x1200.jpg"></Body>
+        <div class="form-group">
+            <label for="inputNo">No</label>
+            <input type="input" class="form-control" name="no" id="inputNo">
+        </div>
+
+        <div class="form-group">
+            <label for="inputType">Type</label>
+            <input type="input" class="form-control" name="type" id="inputType">
+        </div>
+
+        <div class="form-group">
+            <label for="inputBed">Bed</label>
+            <input type="input" class="form-control" name="bed" id="inputBed">
+        </div>
+
+        <div class="form-group">
+            <input type="submit" class="btn btn-primary" >  <a class="btn btn-warning" href="http://localhost:1010/bill" role="button">Next</a>
+        </div>
+    </form>
+    <hr>
+
+    <h1>Room</h1>
+    <table class="table table-bordered">
+        <thead class="thead-light">
+        <tr>
+            <th>No</th>
+            <th>Type</th>
+            <th>Bed</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="room: ${allRooms}">
+            <td th:text="${room.no}"></td>
+            <td th:text="${room.type}"></td>
+            <td th:text="${room.bed}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
